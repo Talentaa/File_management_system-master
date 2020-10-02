@@ -1,3 +1,5 @@
+package common;
+
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.Enumeration;
@@ -19,7 +21,7 @@ public  class DataProcessing {
 		
 		Timestamp timestamp = new Timestamp(System.currentTimeMillis()); 
 		docs = new Hashtable<String,Doc>();
-		docs.put("0001",new Doc("0001","jack",timestamp,"Doc Source Java","Doc.java"));
+		docs.put("0001",new Doc("0001","jack",timestamp,"commom.Doc Source Java","Doc.java"));
 		
 		
 	}
@@ -140,10 +142,10 @@ public  class DataProcessing {
 			return true;
 		}
 	}
-	
+
+	//	        throw new SQLException( "Not Connected to Database"
 	public static boolean deleteUser(String name) throws SQLException{
-//		if ( !connectToDB ) 
-//	        throw new SQLException( "Not Connected to Database" );
+//		if ( !connectToDB ) );
 //		
 //		double ranValue=Math.random();
 //		if (ranValue>0.5)

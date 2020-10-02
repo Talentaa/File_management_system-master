@@ -1,30 +1,25 @@
+package common;
+
 import java.io.*;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.Enumeration;
+import java.util.Scanner;
 
 
 public abstract class User {
 	private String name;
 	private String password;
 	private String role;
-	private String uploadPath = "E:\\Projects\\IdeaProjects\\File_management_system-master\\week03\\uploadfiles\\";
-	private String downloadPath = "E:\\Projects\\IdeaProjects\\File_management_system-master\\week03\\downloadfiles\\";
+	private String uploadPath = "E:\\Projects\\IdeaProjects\\File_management_system-master\\week04\\uploadfiles\\";
+	private String downloadPath = "E:\\Projects\\IdeaProjects\\File_management_system-master\\week04\\downloadfiles\\";
 
 	User(String name,String password,String role){
 		this.name=name;
 		this.password=password;
 		this.role=role;				
 	}
-	
-	public boolean changeSelfInfo(String password) throws SQLException{
-		//写用户信息到存储
-		if (DataProcessing.updateUser(name, password, role)){
-			this.password=password;
-			System.out.println("修改成功");
-			return true;
-		}else
-			return false;
-	}
+
 	
 	public boolean downloadFile(String id) {
 
@@ -69,27 +64,48 @@ public abstract class User {
 		return false;
 
 	}
-	
-	public void showFileList(){
-		System.out.println("文件列表：");
-		try {
-			for (Enumeration<Doc> doc = DataProcessing.getAllDocs();doc.hasMoreElements();){
-				Doc temp = doc.nextElement();
-				System.out.println("ID:" + temp.getID() + "\tCreator:" +temp.getCreator()+ "\tTime:" + temp.getTimestamp()+
-						"\tFilename:" + temp.getFilename()+ "\tDescription:" + temp.getDescription());
+
+	public abstract String getTitle();
+	public boolean uploadFile(String fileName ,String fileID ,String fileDescription)
+	{
+
+		File uploadDoc = new File(fileName);
+		if (uploadDoc.isFile()){
+
+			try {
+				if (DataProcessing.insertDoc(fileID,this.getName(), new Timestamp(System.currentTimeMillis()) ,fileDescription,uploadDoc.getName())) {
+					BufferedInputStream inputStream = new BufferedInputStream(new FileInputStream(uploadDoc));
+					File outputDoc = new File(uploadPath+uploadDoc.getName());
+					outputDoc.createNewFile();
+					BufferedOutputStream outputStream = new BufferedOutputStream(new FileOutputStream(outputDoc));
+					byte[] bytes = new byte[1024];
+
+					int length = 0;
+					while(	(	length = inputStream.read(bytes)	) != -1	){
+						outputStream.write(bytes,0,length);
+					}
+
+					inputStream.close();
+					outputStream.close();
+
+					return true;
+
+
+				}else {
+					return false;
+				}
+			} catch (SQLException throwables) {
+				throwables.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
-		} catch (SQLException throwables) {
-			throwables.printStackTrace();
+
+		}else {
+			return false;
 		}
 
+		return true;
 
-	}
-	
-	public abstract void showMenu();
-	
-	public void exitSystem(){
-		System.out.println("系统退出, 谢谢使用 ! ");
-		System.exit(0);
 	}
 
 	public String getName() {

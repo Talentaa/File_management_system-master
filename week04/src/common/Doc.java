@@ -1,6 +1,8 @@
+package common;
+
 import java.sql.Timestamp;
 
-class Doc{
+public class Doc{
 	private String ID;
 	private String creator;
 	private Timestamp timestamp;
