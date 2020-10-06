@@ -1,0 +1,62 @@
+JFDML JFormDesigner: "7.0.2.6.321" Java: "11.0.8" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+			name: "this"
+			"$locationPolicy": 1
+			"minimumSize": new java.awt.Dimension( 720, 455 )
+			"defaultCloseOperation": 3
+			menuBar: new FormContainer( "javax.swing.JMenuBar", new FormLayoutManager( class javax.swing.JMenuBar ) ) {
+				name: "menuBar"
+				"toolTipText": "菜单"
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "userManageMenu"
+					"text": "用户管理"
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "updateUserMenuItem"
+						"text": "修改用户"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "updateUserMenuItemActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "deleteUserMenuItem"
+						"text": "删除用户"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "deleteUserMenuItemActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "insertUserMenuItem"
+						"text": "新增用户"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "insertUserMenuItemActionPerformed", true ) )
+					} )
+				} )
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "docManageMenu"
+					"text": "档案管理"
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "downloadDocMenuItem"
+						"text": "档案下载"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "downloadDocMenuItemActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "uploadDocMenuItem"
+						"text": "档案上传"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "uploadDocMenuItemActionPerformed", true ) )
+					} )
+				} )
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "personInfoManageItemMenu"
+					"text": "个人信息管理"
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "userChangeInfoMenuItem"
+						"text": "信息修改"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "userChangeInfoMenuItemActionPerformed", true ) )
+					} )
+				} )
+			}
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 5, 0 )
+			"size": new java.awt.Dimension( 475, 405 )
+		} )
+	}
+}

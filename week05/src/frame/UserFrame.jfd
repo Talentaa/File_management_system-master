@@ -1,0 +1,210 @@
+JFDML JFormDesigner: "7.0.2.6.321" Java: "11.0.8" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+			name: "this"
+			"title": "用户管理界面"
+			"defaultCloseOperation": 2
+			add( new FormContainer( "javax.swing.JTabbedPane", new FormLayoutManager( class javax.swing.JTabbedPane ) ) {
+				name: "userTappedPane"
+				"preferredSize": new java.awt.Dimension( 360, 260 )
+				"selectedIndex": 1
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+					name: "updateUserPanel"
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "updateUserNameLabel"
+						"text": "用户名"
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+						"x": 70
+						"y": 25
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "updatePasswordLabel"
+						"text": "口令"
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+						"x": 70
+						"y": 75
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "updateUserLabel"
+						"text": "角色"
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+						"x": 70
+						"y": 125
+					} )
+					add( new FormComponent( "javax.swing.JComboBox" ) {
+						name: "updateUserNameComboBox"
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+						"x": 140
+						"y": 15
+						"width": 160
+					} )
+					add( new FormComponent( "javax.swing.JPasswordField" ) {
+						name: "updatePasswordTextField"
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+						"x": 140
+						"y": 70
+						"width": 160
+					} )
+					add( new FormComponent( "javax.swing.JComboBox" ) {
+						name: "updateUserComboBox"
+						"model": &DefaultComboBoxModel0 new javax.swing.DefaultComboBoxModel {
+							selectedItem: "browser"
+							addElement( "browser" )
+							addElement( "operator" )
+							addElement( "administrator" )
+						}
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+						"x": 140
+						"y": 120
+						"width": 160
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "updateUserConfirmButton"
+						"text": "修改"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "updateUserConfirmButtonActionPerformed", true ) )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+						"x": 80
+						"y": 170
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "updateUserExitButton"
+						"text": "取消"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "updateUserExitButtonActionPerformed", true ) )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+						"x": 200
+						"y": 170
+					} )
+				}, new FormLayoutConstraints( null ) {
+					"title": "修改用户"
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+					name: "deleteUserPanel"
+					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+						name: "deleteUserScrollPane"
+						add( new FormComponent( "javax.swing.JTable" ) {
+							name: "deleteUserTable"
+							"model": new com.jformdesigner.model.SwingTableModel( new java.util.Vector, new java.util.Vector, new java.util.Vector, new java.util.Vector, new java.util.Vector )
+						} )
+					}, new FormLayoutConstraints( class java.lang.String ) {
+						"value": "Center"
+					} )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) {
+						"autoSize": false
+					} ) {
+						name: "subDeleteUserPanel"
+						"preferredSize": new java.awt.Dimension( 200, 90 )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "deleteUserButton"
+							"text": "删除"
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "deleteUserButtonActionPerformed", true ) )
+						}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+							"width": 78
+							"height": 30
+							"x": 80
+							"y": 32
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "deleteUserExitButton"
+							"text": "取消"
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "updateUserExitButtonActionPerformed", true ) )
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "deleteUserExitButtonActionPerformed", true ) )
+						}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+							"width": 78
+							"height": 30
+							"x": 200
+							"y": 32
+						} )
+					}, new FormLayoutConstraints( class java.lang.String ) {
+						"value": "South"
+					} )
+				}, new FormLayoutConstraints( null ) {
+					"title": "删除用户"
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+					name: "insertUserPanel"
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "insertUserNameLabel"
+						"text": "用户名"
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+						"width": 36
+						"height": 17
+						"x": 70
+						"y": 25
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "insertPasswordLabel"
+						"text": "口令"
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+						"width": 24
+						"height": 17
+						"x": 70
+						"y": 75
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "insertUserLabel"
+						"text": "角色"
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+						"width": 24
+						"height": 17
+						"x": 70
+						"y": 125
+					} )
+					add( new FormComponent( "javax.swing.JComboBox" ) {
+						name: "insertUserComboBox"
+						"model": #DefaultComboBoxModel0
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+						"width": 160
+						"height": 30
+						"x": 140
+						"y": 120
+					} )
+					add( new FormComponent( "javax.swing.JPasswordField" ) {
+						name: "insertPasswordTextField"
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+						"width": 160
+						"height": 30
+						"x": 140
+						"y": 70
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "insertUserNameTextField"
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+						"x": 140
+						"y": 15
+						"width": 160
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "insertUserExitButton"
+						"text": "取消"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "insertUserExitButtonActionPerformed", true ) )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+						"width": 78
+						"height": 30
+						"x": 200
+						"y": 170
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "insertUserConfirmButton"
+						"text": "增加"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "insertUserConfirmButtonActionPerformed", true ) )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+						"width": 78
+						"height": 30
+						"x": 80
+						"y": 170
+					} )
+				}, new FormLayoutConstraints( null ) {
+					"title": "新增用户"
+				} )
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "North"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 20, 10 )
+			"size": new java.awt.Dimension( 400, 300 )
+		} )
+	}
+}
